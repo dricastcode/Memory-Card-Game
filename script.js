@@ -60,8 +60,31 @@ function createCard(data, index) {
     </div>
     `
 
+    card.addEventListener('click', () => card.classList.toggle('show-answer'))
+    
     // Add cards to DOM
     cardsEl.push(card)
 
     cardsContainer.appendChild(card)
+
+    updateCurrentText()
 }
+
+// Show number of cards
+function updateCurrentText() {
+    currentEl.innerText = `${ currentActivateCard + 1 }/${cardsEl.length}`
+}
+
+createCards()
+
+// Event listeners
+
+nextBtn.addEventListener('click', () => {
+    cardsEl[currentActivateCard].className = 'card left'
+
+    currentActivateCard = currentActivateCard + 1
+
+    if(currentActivateCard > cardsEl.length - 1) {
+        
+    }
+})
